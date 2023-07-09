@@ -187,11 +187,11 @@ struct Entry *createEntry(int finCount){
                 }
                 if(x == 25){
                     entryBuffer[index].incomeMedHouse = atoi(result);
-                    printf("%f\n", entryBuffer[index].incomeMedHouse);
+                    printf("%d\n", entryBuffer[index].incomeMedHouse);
                 }
                 if(x == 26){
                     entryBuffer[index].incomePerCap = atoi(result);
-                    printf("%f\n", entryBuffer[index].incomePerCap);
+                    printf("%d\n", entryBuffer[index].incomePerCap);
                 }
                 if(x == 27){
                     entryBuffer[index].incomePerPerson = atof(result);
@@ -199,7 +199,7 @@ struct Entry *createEntry(int finCount){
                 }
                 if(x == 38){
                     entryBuffer[index].pop2014 = atoi(result);
-                    printf("%f\n", entryBuffer[index].pop2014);
+                    printf("%d\n", entryBuffer[index].pop2014);
                 }
                 x++;
             }
@@ -211,8 +211,8 @@ struct Entry *createEntry(int finCount){
 
     free(line);
     fclose(demoFile);
-
     return entryBuffer;
+    free(entryBuffer);
 }
 
 int main(){         //need to add argv and argc args and then validate commandline args
@@ -227,11 +227,14 @@ int main(){         //need to add argv and argc args and then validate commandli
     }
     entryArray = createEntry(finCount);
     
+
+    /* tests */
     printf("%s\n", entryArray[0].county);
     printf("%s\n", entryArray[1].county);
     printf("%s\n", entryArray[2].county);
     printf("%s\n", entryArray[3].county);
 
 
+    free(entryArray);
     return 0;
 }
