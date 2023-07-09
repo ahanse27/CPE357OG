@@ -1,28 +1,9 @@
 #ifndef OPERATIONS_H
 #define OPERATIONS_H
 
-struct Header{
-    char* county;
-    char* state;
-
-    float eduBach;
-    float eduHigh;
-
-    float ethniAmerInd;
-    float ethniAsian;
-    float ethniBlack;
-    float ethniHisp;
-    float ethniPacif;
-    float ethniTwoorMore;
-    float ethniWhite;
-    float ethniWhiteNoHisp;
-
-    int incMedHouse;
-    int incPerCap;
-    float incPerPerson;
-
-    int pop2014;
-};
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 struct Entry{
     char* county;
@@ -40,15 +21,16 @@ struct Entry{
     float ethniWhite;
     float ethniWhiteNoHisp;
 
-    int incMedHouse;
-    int incPerCap;
-    float incPerPerson;
+    int incomeMedHouse;
+    int incomePerCap;
+    float incomePerPerson;
 
     int pop2014;
 };
 
 //Function Declarations
 void displayCounty();
+struct Entry *createEntry(int);
 
 
 #endif
